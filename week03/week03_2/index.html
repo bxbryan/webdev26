@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>Intro to CSS Text and Spans</title>
+
+
+    <style type="text/CSS">
+        
+        /* universal selector - always the 1st css rule bc the intent is to reset and then overwrite
+        w more specific styles/selectors further*/
+        *{
+            margin-top: 0;
+            padding: 0;
+        }
+        p{
+            margin-top:1rem;
+            margin-bottom: .5rem;
+            color:#f5f;
+            /* shorthand for color ff55ff */
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+        }
+        a{
+            color: cornflowerblue;
+            text-decoration: none;
+            font-weight: 900;
+        }
+
+        .silly_text{
+            font-family: fantasy;
+            font-size: 1.5rem;
+        }
+
+        #important_stuff{
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: xx-large;
+            font-weight: bold;
+        }
+    </style>
+
+  </head>
+  <body>
+    <p id="important_stuff">This is important stuff!</p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        <a href="#" class="silly_text">enim ad minim veniam, quis nostrud</a>  exercitation ullamco laboris 
+        nisi ut aliquip ex ea commodo consequat. 
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
+        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+        sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <p>
+        2Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+        nisi ut aliquip ex ea commodo consequat. 
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
+        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+        sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <p>
+        3Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+        nisi ut aliquip ex ea commodo consequat. 
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
+        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+        sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </body>
+</html>
+

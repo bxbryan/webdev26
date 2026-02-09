@@ -1,0 +1,67 @@
+three diff scopes of css
+
+local internal and external
+local - confined to a single element
+internal - affect elements in an entire page
+external - can affect multiple pages
+
+class selector applies to tags
+
+html - content
+css - styling
+
+/* this is a comment in css */
+
+#id - unique identifier for a single element
+. class - applies to multiple elements
+element - applies to all elements of that type
+* - universal selector applies to all elements
+
+id overrides stuff
+
+
+/Grouping
+when several selectors share the same declarations
+grouped into a comma-separated list
+h1, h2, h3 {font-family: Helvetica, sans-serif;}
+
+Universal selector
+* {border: 1px solid red;}
+
+
+
+
+nesting
+h1 em {color: red;}
+
+tope selectorif selector class selector
+Grouping
+universal selector
+
+
+
+
+
+units of size
+em - 16px
+rem - responsive em
+px - pixels
+
+available but not sensible to use on web
+in , cm, mm
+pt (points = 1/72inch,), pc (picas = 12 points)
+
+
+
+
+
+colors
+rgb
+cmyk
+
+
+
+text properties
+font familyfont sizeweight
+normla
+style
