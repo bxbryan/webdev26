@@ -1,0 +1,56 @@
+/*always start with the most generally applicable rules and then move to the more specific ones.*/
+
+/*0 out creappy edge margins on the page*/
+html,
+body{
+    margin:0;
+}
+
+/*some generic styles for our div elements*/
+div{
+    border: 1px solid red;
+    background-color: rgba(100, 180, 130, 0.5);
+};
+
+/*absolute positioned elements wihtout a position
+will be positioned in relation to the entire body*/
+.abs-no-parent-pos{
+    background-color:aquamarine;
+    width:50%;
+    height:50%;
+    position:absolute;
+    top:20%;
+    right:100px;
+}
+
+.rel-parent-pos{
+    background-color:lightcoral;
+    width:50%;
+    height:100vh;
+    position:relative;
+    /*whenever u wanna position something absolutely inside of another elemtns
+    the parent element needs to be posititon relative*/
+
+    top:20%;
+    
+    right:100px;
+}
+
+.abs-rel-parent-pos{
+    background-color:rgb(12,237,16);
+    width:200px;
+    height:200px;
+    position:absolute;
+    bottom:10px;
+    right:0;
+}
+
+header{
+    background-color:coral;
+    height:100px;
+    width:100%;
+    position:fixed;
+    z-index:100;
+    /*z index is draw order, positive=front*/
+}
+

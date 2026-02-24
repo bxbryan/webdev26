@@ -1,0 +1,132 @@
+/*always load dependencies first*/
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+
+/*generic to specific with out styles*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    color:red;
+}
+
+header h1{
+    color: white;
+    width:80%;
+    padding: 0 10%;
+    height: 50px;
+    overflow:hidden;
+    position:fixed;
+    background-color: gray;
+    z-index:100;
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+}
+
+nav li{
+    font-size: 1.25rem;
+    height:50px;
+    line-height: 50px;
+    width:120px;
+}
+
+nav a{
+    text-decoration: none;
+    color:#eee;
+    display:block;
+    transition:all 1s;
+}
+
+nav a:hover{
+    color:red;
+    background-color: rgba(0,0,0,0.8);
+}
+
+nav a:active{
+    background-color: rgba(0,0,0,0.8);
+    color:yellow;
+}
+
+html{
+    font-family: 'Kaushan Script', cursive;
+    /*this is where we would declare and use a full size img bg*/
+    background: url('../img/bg.jpg') no-repeat center center fixed;
+    background-size: cover; /*this is what makes the image cover the entire page*/
+}
+
+.container{
+    width:900px;
+    margin: 0 auto; /*auto centers the container on the page*/
+    /*remember to 0 out font size when using inline-block to remove the gap between elements*/
+    /*remember to being font size back to normal on the children elements*/
+    font-size: 0;
+}
+
+.polaroid{
+    width:260px;
+    margin:20px;
+    display: inline-block;
+    position:relative;
+}
+
+.polaroid img {
+    /*common design pattern is to never size imgs themselves
+    instead we make the img 100% width of its parent 
+    and then assign dimensions to the parent*/
+    width:100%;
+    height: auto;
+    /*add some borders to mimic the polaroid look*/
+    border: 10px solid white;
+    border-bottom: 50px solid white;
+}
+
+.polaroid p{
+    font-size: 1rem;
+    color: #333; /* Using a dark gray color for better readability */
+    position: absolute;
+    bottom: 10px;
+    width: 200px;
+    text-align: center;
+}
+
+/*transforms and transitions*/
+.scale_up{
+    transform:scale(1.2);
+    
+}
+
+.scale_x{
+    transform:scale(2,1);
+}
+
+.scale_y{
+    transform:scaleY(2);
+}
+
+.skew_x{
+    transform:skewX(-20deg);
+}
+
+.skew_y{
+    transform:skewY(-20deg);
+}
+
+.skew_both{
+    transform:skew(10deg,30deg);
+}
+
+.rot_X{
+    transform:rotateX(120deg);
+}
+
+.rot_Y{
+    transform:rotateY(120deg);
+}
+
+.rot_Z{
+    transform:rotateZ(120deg);
+}
