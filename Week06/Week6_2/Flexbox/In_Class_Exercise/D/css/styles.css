@@ -1,0 +1,98 @@
+/*global styles*/
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+img{
+    width:100%;
+    height:auto;
+}
+
+/*flexbox styles*/
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;/*wrap the items to the next line if they exceed the container width*/
+    border: 1px solid purple;
+    background-color: rgb(120, 36, 217);
+    min-height: 400px;
+}
+
+.item{
+    /*flex item properties*/
+    border: 1px solid greenyellow;
+    background-color: rgba(28, 255, 194, 0.826);
+    width:21%;
+    height:300px;
+}
+
+/* atomic css design pattern*/
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.justify-start{
+    justify-content: flex-start;
+}
+
+.justify-end{
+    justify-content: flex-end;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.justify-between{
+    justify-content: space-between;
+}
+
+.justify-around{
+    justify-content: space-around;
+}
+
+.justify-even{
+    justify-content: space-evenly;
+}
+
+/*align items*/
+.align-start{
+    align-items: flex-start;
+}
+
+.align-end{
+    align-items: flex-end;
+}
+
+.align-center{
+    align-items: center;
+}
+
+.align-stretch{
+    align-items: stretch;
+}
+
+.align-stretch > *{
+    height: auto;
+}
+
+.align-self{
+    align-self: stretch;
+    /*needed when flex items have set height*/
+    height: auto;
+}
+
+@media screen and (max-width: 768px){
+    .container{
+        flex-direction: column;
+    }
+}

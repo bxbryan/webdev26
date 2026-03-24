@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>CSS Vars | Contact Us</title>
+    <style type="text/css">
+      .container{
+        background-color: chartreuse;
+
+        .row{
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+        }
+
+        .label-lg{
+          font-size:2rem;
+        }
+
+        .input-lg{
+          padding: .5rem;
+          border-radius:.5rem;
+          border:1px solid gray;
+          margin-right:2rem;
+        }
+
+        .message-area{
+          display:flex;
+          flex-direction: column;
+          margin-top:2rem;
+          font-size:2rem;
+        }
+        
+        .message{
+          height:16rem;
+          border-radius:.25rem;
+          padding:1rem;
+        }
+
+        .button-bar{
+          display:flex;
+          flex-direction:row-reverse;
+        }
+
+        .btn-dark{
+          background-color: black;
+          color:white;
+          padding:1rem 2rem;
+          border-radius:.5rem;
+          border-color:white;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+      <h1>Get in Touch!</h1>
+      <form action="https://formspree.io/f/mwvrlyol" method="post">
+        <label for="name" class="label-lg">Name:</label>
+        <input type="text" name="name" class="input-lg" required />
+
+        <label for="email" class="label-lg">Email:</label>
+        <input type="text" id="email" name="email" class="input-lg" required />
+
+        <div class="message-area">
+          <label for="message">Leave us a Message!</label>
+          <textarea id="message" name="message" placeholder="Drop us una bomba!" required></textarea>
+        </div>
+        
+        <div class="button-bar">
+          <button class="btn-dark" type="sumbit">Send</button>
+        </div>
+        <input type="hidden" name="subject" value="New submisison from {{name}}">
+      </form>
+    </div>
+  </body>
+</html>

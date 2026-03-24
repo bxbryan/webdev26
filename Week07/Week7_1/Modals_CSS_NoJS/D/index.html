@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSS Only Modal</title>
+    <!-- Internal Stylesheet -->
+    <style type="text/css">
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      /*anchor tags that look like buttons */
+      a.button {
+        text-decoration: none;
+        color: white;
+        background-color: blueviolet;
+        padding: 1rem 2rem;
+        border-radius: 0.75rem;
+        display: inline-block;
+      }
+
+      /* modal styles  */
+      .info_modal {
+        /* stretch the div to cover the entire screen */
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        /* transparent gray bg*/
+        background-color: rgba(0,0,0,0.3);
+        /* make super sure the overlay si above all other elements on the screen*/
+        z-index: 99999;
+        /* invisible by default */
+        opacity: 0;
+        /* we always define the transition on the starting state*/
+        transition: opacity 400ms ease-in;
+        /* make sure we cant click anything behind our overlay*/
+        pointer-events: none;
+      }
+
+      /* this selector grabs only the targeted ID from our anchor tag click event*/
+      .info_modal:target {
+        opacity: 1;
+        /* re allow pointer events*/
+        pointer-events: auto;
+      }
+
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* this will select only direct decendent divs of something with the class .info_modal*/
+      .info_modal > div {
+        background-color: white;
+        width: 600px;
+        height: 600px;
+        padding: 2rem;
+        border-radius: 0.75rem;
+        position: relative;
+      }
+
+      .close {
+        height: 20px;
+        width: 20px;
+        background-color: antiquewhite;
+        /* position in top right corner */
+        position: absolute;
+        top:0;
+        right: 0;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <!-- anchor tags that target another element on the page with a specific id -->
+    <!-- anchor tags with a class to make them look like a button -->
+    <a href="#info" class="button">Open Modal 1</a>
+    <!-- new button new modal = new target ID -->
+    <a href="#info_2" class="button">Open Modal 2</a>
+
+
+<!-- Your website content here. put the modals at the bottom of the page wo they render last and in front -->
+
+
+
+    <!-- BEGIN MODAL 1 -->
+    <!-- parent wrapper div which will have the ID that the anchor tag button targets -->
+    <!-- this div will also be out transparent background overlay -->
+    <div id="info" class="info_modal center">
+      <!-- pop up window on/in the overlay -->
+      <div>
+        <a href="#close" class="close">X</a>
+        <!-- whatever content you wish -->
+        <h1>Hello Modal 1</h1>
+        <p>This is our first CSS only modal!</p>
+      </div>
+    </div>
+    <!-- END MODAL 1 -->
+
+    <!-- BEGIN MODAL 2 -->
+    <!-- parent wrapper div which will have the ID that the anchor tag button targets -->
+    <!-- this div will also be out transparent background overlay -->
+    <div id="info_2" class="info_modal center">
+      <!-- pop up window on/in the overlay -->
+      <div>
+        <a href="#close" class="close">X</a>
+        <!-- whatever content you wish -->
+        <h1>Hello Modal 2</h1>
+        <p>This is our SECOND CSS only modal!</p>
+      </div>
+    </div>
+    <!-- END MODAL 2 --> 
+  </body>
+</html>
