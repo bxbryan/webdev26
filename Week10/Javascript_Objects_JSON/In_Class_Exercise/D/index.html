@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Object vs JSON</title>
+  </head>
+  <body>
+    <script>
+      const customer = {
+        'firstName': 'Weilian Stark',
+        age: 26,
+        married: false,
+        pets:['dog', 'cat','claude'],
+        siblings:[
+          {
+            name: 'Anita Stark',
+            age: 18,
+            married: false
+          },
+          {
+            name: 'Sansa Stark',
+            age: 28,
+            married: true
+          },
+        ],
+      }
+      //william's age
+      console.log(customer.age)
+      //all williams pets
+      for (let i = 0; i < customer.pets.length; i++){
+        console.log(customer.pets[i])
+      }
+      //his sisters marital status
+      console.log(customer.siblings[0].married)
+      //his 3rd pet
+      console.log(customer.pets[2]) //undefined
+
+      console.log(customer)
+      //convert to JSON string so it can be shared w other apps
+      const customerJSON=JSON.stringify(customer)
+      console.log(customerJSON)
+
+      const customerObj=JSON.parse(customerJSON)  
+      console.log(customerObj)
+
+      const logApiResults = async () => {
+        const response = await fetch('https://rickandmortyapi.com/api/character/1')
+        const result= await response.json()
+        console.log(result)
+        return result
+      }
+
+      logApiResults().then((data) => {
+        const message= `The character's name is ${data.name} and they are a ${data.species}.`
+      })
+    </script>
+  </body>
+</html>

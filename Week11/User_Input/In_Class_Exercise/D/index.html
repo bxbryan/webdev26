@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simple User Input</title>
+  </head>
+  <body>
+    <h1>Simple User Input</h1>
+    <p>Enter your name:</p>
+    <input type="text" id="nameInput" />
+    <button onclick="greet()">Greet Me!</button>
+
+    <script>
+      function greet() {
+        const name = document.getElementById('nameInput').value;
+        alert('Hello, ' + name + '!');
+      }
+
+      const pickAClass=(event)=>{
+        let userN=document.getElementById('num').value
+        console.log(typeof userN)
+
+        let n=parseInt(userN)
+        console.log(typeof n)
+
+        let h=document.getElementById('changeMe')
+        switch (n){
+          case 0:
+            h.className='red'
+            break
+          case 1:
+            h.className='blue'
+            break
+          case 2:
+            h.className='green'
+            break
+          case 3:
+            h.className='purple'
+            break
+          default:
+            alert('Please enter a number between 0 and 3')
+            
+        }
+      }
+    </script>
+  </body>
+</html>
