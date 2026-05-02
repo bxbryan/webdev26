@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Location Map</title>
+
+    <!-- Leaflet CSS — styles the map -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+        color: #1a1a1a;
+      }
+
+      h1 {
+        margin-bottom: 4px;
+      }
+
+      .subtitle {
+        color: #6b7280;
+        margin-bottom: 20px;
+      }
+
+      #status {
+        margin: 16px 0;
+        font-size: 18px;
+        color: #374151;
+        padding: 12px;
+        background-color: #f3f4f6;
+        border-radius: 8px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      #map {
+        height: 450px;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        border-radius: 8px;
+        border: 2px solid #d1d5db;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My Location on a Map</h1>
+    <p class="subtitle">Geolocation API + Leaflet</p>
+    <div id="status">Finding your location...</div>
+    <div id="map"></div>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+      // https://tile.openstreetmap.org/{z}/{x}/{y}.png
+      //declare this globally so we can access on success and error
+      let status
+
+      document.addEventListener("DOMContentLoaded", () => {
+        status = document.getElementById("status")
+      
+
+      
+        //check and see if the browser supports geolocation
+        //if not geolocation key in navigator obj
+        if (!("geolocation" in navigator)){
+          status.textContent = "Geolocation is not supported by your browser."
+        } else{
+          navigator.geolocation.getCurrentPosition(showOnMap, handleError)
+        }
+      })
+
+      const showOnMap = (position) => {
+        const {latitude, longitude, accuracy} = position.coords
+        status.innerHTML = `
+          <strong>Latitude: <strong> ${latitude}<br/>
+          <strong>Longitude: <strong> ${longitude}<br/>
+          <strong>Accuracy: <strong> ${accuracy}
+        `
+        //make map obj and append to the div w the id of the map
+        //set view/zoom lvl of map
+        const map=L.map("map").setView([latitude, longitude], 20)
+
+        //add OpenStreetMap tiles so we can view our map in the world
+        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribute: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map)
+
+        //draw an accuracy circle
+        L.circle([latitude, longitude], {
+          color: "blue",
+          fillColor: "#3b82f6",
+          fillOpacity: 0.2,
+          radius: accuracy
+        }).addTo(map)
+
+        //show the actual lat and lon in a custom popup we trigger on load
+        L.marker([latitude, longitude]).addTo(map).bindPopup(`
+        You are here!<br/>
+        Lat: ${latitude.toFixed(5)}<br/>
+        Lon: ${longitude.toFixed(5)}<br/>
+        Accuracy: ${accuracy} meters
+        `)
+          .openPopup()
+      }
+    
+      const handleError = (error) => {
+        switch(error.code){
+          case error.PERMISSION_DENIED:
+            status.textContent = "Permission denied. Please allow access to your location."
+            break
+          case error.POSITION_UNAVAILABLE:
+            status.textContent = "Location information is unavailable."
+            break
+          case error.TIMEOUT:
+            status.textContent = "The request to get your location timed out."
+            break
+          default:
+            status.textContent = "An unknown error occurred while trying to get your location."
+        }
+      }
+    </script>
+  </body>
+</html>
