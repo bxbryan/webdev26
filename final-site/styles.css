@@ -447,7 +447,7 @@ body {
   min-height: calc(100vh - (var(--works-pad-y) * 2));
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 82px;
+  padding: clamp(4rem, 9vh, 7rem) 0 clamp(4rem, 8vh, 6rem);
 }
 
 .works-sidebar-copy h1 {
@@ -455,7 +455,7 @@ body {
   font-size: clamp(4rem, 4.8vw, 4.8rem);
   font-weight: 400;
   line-height: 0.92;
-  text-transform: lowercase;
+  /*text-transform: lowercase;*/
 }
 
 .works-sidebar-copy p {
@@ -482,6 +482,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
+  padding: clamp(4rem, 9vh, 7rem) 0 clamp(4rem, 8vh, 6rem);
 }
 
 .works-card {
@@ -544,7 +545,7 @@ body {
   flex-direction: column;
   gap: 2.15rem;
   width: 100%;
-  padding-top: 34px;
+  padding: clamp(4rem, 9vh, 7rem) 0 clamp(4rem, 8vh, 6rem);
 }
 
 .project-back-link {
@@ -558,7 +559,7 @@ body {
   font-size: clamp(3.6rem, 4.16vw, 4.48rem);
   font-weight: 400;
   line-height: 0.92;
-  text-transform: lowercase;
+  /*text-transform: lowercase;*/
 }
 
 .project-meta-group {
@@ -594,7 +595,7 @@ body {
 .project-intro {
   display: grid;
   gap: 1.75rem;
-  padding-top: 36px;
+  padding: clamp(4rem, 9vh, 7rem) 0 clamp(4rem, 8vh, 6rem);
   font-size: clamp(1.85rem, 2.25vw, 3rem);
   line-height: 1.14;
 }
